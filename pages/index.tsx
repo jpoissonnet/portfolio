@@ -2,13 +2,10 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import NavbarTop from "../components/NavbarTop/navbartop";
 import Link from "next/link";
-import { Footer } from "../components/Footer/footer";
+import Footer from "../components/Footer/footer";
+import Container from "../components/Container/container";
+import Rainbow from "../components/Rainbow/rainbow";
 
-const Container = styled.main`
-  max-width: 1060px;
-  margin: auto;
-  padding: 2rem;
-`;
 
 const Hero = styled.section`
   display: flex;
@@ -19,14 +16,8 @@ const Hero = styled.section`
   align-items: flex-start;
   width: auto;
   @media (min-width: 768px) {
-    width: 50%;
+    width: 60%;
   }
-`;
-
-const Rainbow = styled.span`
-  background: linear-gradient(70deg, #8cc9d5 0%, #6720e0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 const Title = styled.h2`
@@ -44,8 +35,8 @@ const Description = styled.p`
   font-weight: 300;
 `;
 
-const Button = styled.div`
-  display: block;
+const Button = styled.a`
+  display: inline-block;
   position: relative;
   color: ${({ theme }) => theme.lightest};
   border: none;
@@ -90,36 +81,34 @@ const Emoji = styled.span`
   margin-left: 0.5rem;
 `;
 
-
-const Home: NextPage = () =>
+const Home: NextPage = () => (
   <>
     <NavbarTop />
     <Container>
-      <Hero>
-        <Title>
-          Hello,
-          <br />
-          <Rainbow>
-            I am Jules,
-            <br /> nice to meet you.
-          </Rainbow>
-        </Title>
-        <Description>
-          I like to learn things, and I like to share what I learn.
-          <br /> I am a frontend apprentice, and I am currently learning React
-          and Next.js.
-        </Description>
-        <Button>
+        <Hero>
+          <Title>
+            Hello,
+            <br />
+            <Rainbow>
+              I am Jules,
+              <br /> nice to meet you.
+            </Rainbow>
+          </Title>
+          <Description>
+            I like to learn things, and I like to share what I learn.
+            <br /> I am a frontend apprentice, and I am currently learning React
+            and Next.js.
+          </Description>
           <Link href={"/projects"} passHref>
-            <a>
+            <Button>
               <span>See my projects</span>
               <Emoji>👉</Emoji>
-            </a>
+            </Button>
           </Link>
-        </Button>
-      </Hero>
+        </Hero>
     </Container>
     <Footer />
-  </>;
+  </>
+);
 
 export default Home;

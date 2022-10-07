@@ -9,7 +9,11 @@ const FooterWrap = styled.footer`
   color: ${({ theme }) => theme.lightest};
   letter-spacing: -0.5px;
 `;
-export const Footer = () =>
+
+const Footer = () => (
   <FooterWrap>
     Made with <span>❤️</span> by Jules.
-  </FooterWrap>;
+  </FooterWrap>
+);
+
+export default Footer;

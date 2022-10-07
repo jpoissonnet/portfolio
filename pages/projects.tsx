@@ -1,14 +1,9 @@
 import React, { FC, ReactNode } from "react";
 import NavbarTop from "../components/NavbarTop/navbartop";
 import styled from "styled-components";
-import { Footer } from "../components/Footer/footer";
+import Footer from "../components/Footer/footer";
 import Image from "next/image";
-
-const Container = styled.main`
-  max-width: 1060px;
-  margin: auto;
-  padding: 2rem;
-`;
+import Container from "../components/Container/container";
 
 const Cards = styled.section`
   display: flex;
@@ -25,7 +20,16 @@ const CardContainer = styled.div`
   gap: 1rem;
   height: 400px;
   margin: 2rem 0;
-  padding: 2rem;
+  padding: 1rem 1rem;
+  transform: rotate(0.4deg);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.9;
+
+  &:hover {
+    transform: rotate(-0.4deg);
+    opacity: 1;
+  }
 `;
 
 const Img = styled.div`
@@ -43,7 +47,13 @@ const Card: FC<{
   return (
     <CardContainer>
       <Img>
-        <Image src={src} alt={alt} layout="fill" objectFit="cover" objectPosition="center" />
+        <Image
+          src={src}
+          alt={alt}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
       </Img>
       <h3>{title}</h3>
       <p>{children}</p>
