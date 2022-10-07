@@ -1,83 +1,119 @@
-import React from "react";
+import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
-import { YoutubeIcon } from "../icon/youtubeIcon";
+import Link from "next/link";
+import { NextRouter, useRouter } from "next/router";
 
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  height: 3rem;
+  height: 4rem;
+  width: 100%;
   background: ${({ theme }) => theme.dark};
 `;
 
-const SearchInput = styled.input`
-  flex: 10;
-  height: 1.5rem;
-  border: none;
-  outline: none;
-  padding: 0 0.5rem;
-  background: inherit;
+const NavWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 2rem;
+`;
+
+const Name = styled.h1`
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.lightest};
 `;
 
-const SearchButton = styled.button`
-  flex: 1 1 0;
-  width: 3rem;
-  height: 100%;
-  background-color: ${({ theme }) => theme.light};
-  border: none;
-  cursor: pointer;
-`;
-
-const SearchField = styled.form`
+const NavItems = styled.ul`
   display: flex;
-  align-items: center;
-  width: 30rem;
-  height: 80%;
-  border: 1px solid ${({ theme }) => theme.light};
-  background: ${({ theme }) => theme.dark};
+  list-style: none;
 `;
 
-const ConnectButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 0.2em;
-  border: 1px solid ${({ theme }) => theme.blue};
-  background: none;
-  color: ${({ theme }) => theme.blue};
-  cursor: pointer;
+const NavItem = styled.li<{ router: NextRouter; href: string }>`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.lightest};
+  position: relative;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 3px;
+    border-radius: 5px;
+    background: ${({ theme }) => theme.lightest};
+    transition: all 0.3s ease-in-out;
+  }
+  ${({ router, href }) => 
+    router.pathname === href &&`
+        &:after {
+          visibility: visible;
+          opacity: 1;
+          left: 50%;
+          width: 5px;
+          height: 5px;
+          border-radius: 100px;
+        }
+      `
+  }}
+  &:hover:after {
+    visibility: visible;
+    opacity: 1;
+    left: 50%;
+  }
 `;
 
-const ConnectText = styled.span`
-  flex: 1;
-  margin: 0 0.5rem;
-  text-transform: uppercase;
+const A = styled.a`
+  padding: 1rem;
 `;
 
-const Wrapflex = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
+const NavLink: FC<{
+  children: ReactNode;
+  href: string;
+  router: NextRouter;
+}> = ({ children, href, router }) => {
+  return (
+    <NavItem router={router} href={href}>
+      <Link passHref href={href}>
+        <A>{children}</A>
+      </Link>
+    </NavItem>
+  );
+};
 
-const Navbartop = () => {
+const NavbarTop = () => {
+  const router = useRouter();
   return (
     <Navbar>
-      <YoutubeIcon />
-      <SearchField>
-        <SearchInput placeholder={"Rechercher"}></SearchInput>
-        <SearchButton>🔍</SearchButton>
-      </SearchField>
-      <ConnectButton>
-        <Wrapflex>
-          <span>👨</span>
-          <ConnectText>Se connecter</ConnectText>
-        </Wrapflex>
-      </ConnectButton>
+      <NavWrap>
+        <Name>
+          <Link href={"/"}>Jules Poissonnet</Link>
+        </Name>
+        <NavItems>
+          <NavLink router={router} href={"/"}>
+            Home
+          </NavLink>
+          <NavLink router={router} href={"/projects"}>
+            Projects
+          </NavLink>
+          <NavLink router={router} href={"/contact"}>
+            Contact
+          </NavLink>
+          <NavLink router={router} href={"/cv"}>
+            CV
+          </NavLink>
+        </NavItems>
+      </NavWrap>
     </Navbar>
   );
 };
 
-export default Navbartop;
+export default NavbarTop;
