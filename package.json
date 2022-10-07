@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.26",
+    "@types/styled-components": "5.1.26",
     "next": "12.3.1",
     "prettier": "2.7.1",
     "react": "18.2.0",

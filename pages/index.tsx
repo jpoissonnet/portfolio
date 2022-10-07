@@ -6,7 +6,6 @@ import Footer from "../components/Footer/footer";
 import Container from "../components/Container/container";
 import Rainbow from "../components/Rainbow/rainbow";
 
-
 const Hero = styled.section`
   display: flex;
   flex-direction: column;
