@@ -6,10 +6,7 @@ import Rainbow from "../components/Rainbow/rainbow";
 import styled from "styled-components";
 
 const H2 = styled.h2`
-  font-size: 4rem;
-  letter-spacing: -2px;
-  margin-block: 0;
-  text-align: center;
+  font-size: 1rem;
 `;
 
 const Playground = () => {

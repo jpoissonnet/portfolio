@@ -13,10 +13,6 @@ const Hero = styled.section`
   padding: 2rem 0;
   gap: 3rem;
   align-items: flex-start;
-  width: auto;
-  @media (min-width: 768px) {
-    width: 60%;
-  }
 `;
 
 const Title = styled.h2`
@@ -24,7 +20,6 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.lightest};
   letter-spacing: -2px;
   margin-block: 0;
-  white-space: nowrap;
 `;
 
 const Description = styled.p`
@@ -46,9 +41,11 @@ const Button = styled.a`
   cursor: pointer;
   transition: 0.2s ease-in-out;
   z-index: 1;
-  background: linear-gradient(70deg,
-  ${({ theme }) => theme.primary} 0%,
-  ${({ theme }) => theme.secondary} 100%);
+  background: linear-gradient(
+    70deg,
+    ${({ theme }) => theme.primary} 0%,
+    ${({ theme }) => theme.secondary} 100%
+  );
 
   &::before {
     display: block;
@@ -60,9 +57,11 @@ const Button = styled.a`
     height: 100%;
     z-index: -1;
     border-radius: 0.2rem;
-    background: linear-gradient(70deg,
-    ${({ theme }) => theme.secondary} 0%,
-    ${({ theme }) => theme.primary} 100%);
+    background: linear-gradient(
+      70deg,
+      ${({ theme }) => theme.secondary} 0%,
+      ${({ theme }) => theme.primary} 100%
+    );
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-in-out;
@@ -84,27 +83,27 @@ const Home: NextPage = () => (
   <>
     <NavbarTop />
     <Container>
-        <Hero>
-          <Title>
-            Hello,
-            <br />
-            <Rainbow>
-              I am Jules,
-              <br /> nice to meet you.
-            </Rainbow>
-          </Title>
-          <Description>
-            I like to learn things, and I like to share what I learn.
-            <br /> I am a frontend apprentice, and I am currently learning React
-            and Next.js.
-          </Description>
-          <Link href={"/projects"} passHref>
-            <Button>
-              <span>See my projects</span>
-              <Emoji>👉</Emoji>
-            </Button>
-          </Link>
-        </Hero>
+      <Hero>
+        <Title>
+          Hello,
+          <br />
+          <Rainbow>
+            I am Jules,
+            <br /> nice to meet you.
+          </Rainbow>
+        </Title>
+        <Description>
+          I like to learn things, and I like to share what I learn.
+          <br /> I am a frontend apprentice, and I am currently learning React
+          and Next.js.
+        </Description>
+        <Link href={"/projects"} passHref>
+          <Button>
+            <span>See my projects</span>
+            <Emoji>👉</Emoji>
+          </Button>
+        </Link>
+      </Hero>
     </Container>
     <Footer />
   </>

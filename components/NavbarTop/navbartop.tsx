@@ -52,6 +52,7 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
     background: ${({ theme }) => theme.lightest};
     transition: all 0.3s ease-in-out;
   }
+
   ${({ router, href }) =>
     router.pathname === href &&
     `
@@ -63,12 +64,14 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
           height: 5px;
           border-radius: 100px;
         }
-      `}}
-  &:hover:after {
-    visibility: visible;
-    opacity: 1;
-    left: 50%;
-  }
+      `}
+}
+
+&:hover:after {
+  visibility: visible;
+  opacity: 1;
+  left: 50%;
+}
 `;
 
 const A = styled.a`
@@ -95,7 +98,7 @@ const NavbarTop = () => {
     <Navbar>
       <NavWrap>
         <Name>
-          <Link href={"/"}>Jules Poissonnet</Link>
+          <Link href={"/"}>Jules</Link>
         </Name>
         <NavItems>
           <NavLink router={router} href={"/"}>
