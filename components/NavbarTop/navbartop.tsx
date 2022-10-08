@@ -2,6 +2,7 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
+import { NavMobile } from "../NavMobile/navMobile";
 
 const Navbar = styled.nav`
   display: flex;
@@ -28,8 +29,11 @@ const Name = styled.h1`
 `;
 
 const NavItems = styled.ul`
-  display: flex;
+  display: none;
   list-style: none;
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 const NavItem = styled.li<{ router: NextRouter; href: string }>`
@@ -98,8 +102,9 @@ const NavbarTop = () => {
     <Navbar>
       <NavWrap>
         <Name>
-          <Link href={"/"}>Jules</Link>
+          <Link href={"/"}>Jules P.</Link>
         </Name>
+        <NavMobile router={router} />
         <NavItems>
           <NavLink router={router} href={"/"}>
             Home

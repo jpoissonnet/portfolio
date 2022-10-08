@@ -19,7 +19,6 @@ const Playground = () => {
           This page is a playground for me to test some stuffs. I will try to
           keep it clean and organized.
         </p>
-        {/*Under construction*/}
         <H2>
           <Rainbow>Under construction</Rainbow>
         </H2>
