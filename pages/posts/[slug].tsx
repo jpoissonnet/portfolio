@@ -8,6 +8,8 @@ import styled from "styled-components";
 import Image from "next/image";
 import { FC } from "react";
 import Footer from "../../components/Footer/footer";
+import { MDXRemote } from "next-mdx-remote";
+import Rainbow from "../../components/Rainbow/rainbow";
 
 type PostType = {
   slug: string;
@@ -78,7 +80,7 @@ const Post: FC<{ post: PostType }> = ({ post }) => {
               objectPosition="center"
             />
           </Img>
-          <PostContent dangerouslySetInnerHTML={{ __html: post.content }} />
+          <MDXRemote {...(post.content as any)} components={{ Rainbow }} />
         </PostContainer>
       </Container>
       <Footer />
