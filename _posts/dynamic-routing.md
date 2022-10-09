@@ -3,11 +3,11 @@ title: 'Dynamic Routing and Static Generation'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet
 nulla facilities morbi tempus.'
-coverImage: '/assets/blog/dynamic-routing/cover.jpg'
+coverImage: 'https://images.unsplash.com/photo-1506125840744-167167210587?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80'
 date: '2020-03-16T05:35:07.322Z'
 author:
 name: JJ Kasper
-picture: '/assets/blog/authors/jj.jpeg'
+picture: 'https://images.unsplash.com/photo-1554357475-accb8a88a330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
 ogImage:
 url: '/assets/blog/dynamic-routing/cover.jpg'
 ---
@@ -32,3 +32,4 @@ ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea di
 tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin
 nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non
 odio euismod lacinia at quis risus sed vulputate.
+

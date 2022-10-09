@@ -1,5 +1,10 @@
-import Head from "next/head";
+import Container from "../components/Container/container";
+import NavbarTop from "../components/NavbarTop/navbartop";
 import { getAllPosts } from "../lib/api";
+import { Card } from "../components/Card/card";
+import styled from "styled-components";
+import Link from "next/link";
+import Footer from "../components/Footer/footer";
 
 type PostType = {
   slug: string;
@@ -21,41 +26,33 @@ type Props = {
   allPosts: PostType[];
 };
 
+const Cards = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
   return (
     <>
-      <Head>
-        <title>Next.js Blog Example with</title>
-      </Head>
-      <article>
-        {heroPost && (
-          <p>
-            <>
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            </>
-          </p>
-        )}
-        {morePosts.length &&
-          morePosts.map((post) => (
-            <p key={post.slug}>
-              <>
+      <NavbarTop />
+      <Container>
+        <Cards>
+          {allPosts.length &&
+            allPosts.map((post) => (
+              <Card
+                key={post.slug}
                 title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-                slug={post.slug}
-                excerpt={post.excerpt}
-              </>
-            </p>
-          ))}
-      </article>
+                src={post.coverImage}
+                alt={post.title}
+                href={`/posts/${post.slug}`}
+              >
+                {post.excerpt}
+              </Card>
+            ))}
+        </Cards>
+      </Container>
+      <Footer />
     </>
   );
 }

@@ -1,8 +1,13 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
-import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
+import NavbarTop from "../../components/NavbarTop/navbartop";
+import Container from "../../components/Container/container";
+import styled from "styled-components";
+import Image from "next/image";
+import { FC } from "react";
+import Footer from "../../components/Footer/footer";
 
 type PostType = {
   slug: string;
@@ -26,35 +31,62 @@ type Props = {
   preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
-  const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />;
-  }
+const Img = styled.div`
+  flex-basis: 200px;
+  width: 100%;
+  position: relative;
+`;
+
+const PostContainer = styled.article`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1rem;
+`;
+
+const PostTitle = styled.h1`
+  flex: 1;
+  letter-spacing: 2px;
+  font-weight: 700;
+`;
+
+const PostContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 1rem;
+`;
+
+const Post: FC<{ post: PostType }> = ({ post }) => {
   return (
-    <article>
-      {router.isFallback ? (
-        <h2>Loading…</h2>
-      ) : (
-        <>
-          <Head>
-            <title>{post.title}</title>
-            <meta property="og:image" content={post.ogImage.url} />
-          </Head>
-          <article>
-            <>
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-              content={post.content}
-            </>
-          </article>
-        </>
-      )}
-    </article>
+    <>
+      <NavbarTop />
+      <Container>
+        <PostContainer>
+          <PostTitle>{post.title}</PostTitle>
+          <Img>
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </Img>
+          <PostContent dangerouslySetInnerHTML={{ __html: post.content }} />
+        </PostContainer>
+      </Container>
+      <Footer />
+    </>
   );
-}
+};
+
+export default Post;
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug, [
