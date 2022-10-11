@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getProjectBySlug, getAllProjects } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 import NavbarTop from "../../components/NavbarTop/navbartop";
 import Container from "../../components/Container/container";
@@ -10,28 +8,7 @@ import { FC } from "react";
 import Footer from "../../components/Footer/footer";
 import { MDXRemote } from "next-mdx-remote";
 import Rainbow from "../../components/Rainbow/rainbow";
-
-type PostType = {
-  slug: string;
-  title: string;
-  date: string;
-  coverImage: string;
-  author: {
-    name: string;
-    picture: string;
-  };
-  excerpt: string;
-  ogImage: {
-    url: string;
-  };
-  content: string;
-};
-
-type Props = {
-  post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
-};
+import { ProjectType } from "../../interface/ProjectType";
 
 const Img = styled.div`
   flex-basis: 200px;
@@ -39,7 +16,7 @@ const Img = styled.div`
   position: relative;
 `;
 
-const PostContainer = styled.article`
+const ProjectContainer = styled.article`
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -49,49 +26,40 @@ const PostContainer = styled.article`
   padding: 1rem 1rem;
 `;
 
-const PostTitle = styled.h1`
+const ProjectTitle = styled.h1`
   flex: 1;
   letter-spacing: 2px;
   font-weight: 700;
 `;
 
-const PostContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 1rem;
-`;
-
-const Post: FC<{ post: PostType }> = ({ post }) => {
+const Project: FC<{ project: ProjectType }> = ({ project }) => {
   return (
     <>
       <NavbarTop />
       <Container>
-        <PostContainer>
-          <PostTitle>{post.title}</PostTitle>
+        <ProjectContainer>
+          <ProjectTitle>{project.title}</ProjectTitle>
           <Img>
             <Image
-              src={post.coverImage}
-              alt={post.title}
+              src={project.coverImage}
+              alt={project.title}
               layout="fill"
               objectFit="cover"
               objectPosition="center"
             />
           </Img>
-          <MDXRemote {...(post.content as any)} components={{ Rainbow }} />
-        </PostContainer>
+          <MDXRemote {...(project.content as any)} components={{ Rainbow }} />
+        </ProjectContainer>
       </Container>
       <Footer />
     </>
   );
 };
 
-export default Post;
+export default Project;
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug, [
+  const project = getProjectBySlug(params.slug, [
     "title",
     "date",
     "slug",
@@ -100,12 +68,12 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     "ogImage",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
+  const content = await markdownToHtml(project.content || "");
 
   return {
     props: {
-      post: {
-        ...post,
+      project: {
+        ...project,
         content,
       },
     },
@@ -113,13 +81,13 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const projects = getAllProjects(["slug"]);
 
   return {
-    paths: posts.map((post) => {
+    paths: projects.map((project) => {
       return {
         params: {
-          slug: post.slug,
+          slug: project.slug,
         },
       };
     }),
