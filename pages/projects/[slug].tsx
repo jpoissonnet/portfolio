@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getProjectBySlug, getAllProjects } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 import NavbarTop from "../../components/NavbarTop/navbartop";
 import Container from "../../components/Container/container";
@@ -91,7 +89,7 @@ const Post: FC<{ post: PostType }> = ({ post }) => {
 export default Post;
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug, [
+  const post = getProjectBySlug(params.slug, [
     "title",
     "date",
     "slug",
@@ -113,7 +111,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllProjects(["slug"]);
 
   return {
     paths: posts.map((post) => {
