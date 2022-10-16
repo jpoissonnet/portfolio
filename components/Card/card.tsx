@@ -7,7 +7,7 @@ const CardContainer = styled.a`
   display: flex;
   flex: 1 1 300px;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
   height: 400px;
@@ -24,7 +24,7 @@ const CardContainer = styled.a`
   }
 `;
 const Img = styled.div`
-  flex: 0 1 70%;
+  flex: 0 0 60%;
   width: 100%;
   position: relative;
 `;

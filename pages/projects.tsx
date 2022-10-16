@@ -25,7 +25,7 @@ export default function Index({ allProjects }: { allProjects: ProjectType[] }) {
                 title={project.title}
                 src={project.coverImage}
                 alt={project.title}
-                href={`/posts/${project.slug}`}
+                href={`/projects/${project.slug}`}
               >
                 {project.excerpt}
               </Card>
