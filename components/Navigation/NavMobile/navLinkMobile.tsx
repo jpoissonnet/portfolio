@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import { NextRouter } from "next/router";
 import Link from "next/link";
-import Rainbow from "../Rainbow/rainbow";
+import Rainbow from "../../Rainbow/rainbow";
 import styled from "styled-components";
 
 export const MobileNavLink = styled.li`

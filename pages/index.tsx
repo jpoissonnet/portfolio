@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
-import NavbarTop from "../components/NavbarTop/navbartop";
+import NavbarTop from "../components/Navigation/NavbarTop/navbartop";
 import Link from "next/link";
-import Footer from "../components/Footer/footer";
-import Container from "../components/Container/container";
+import Footer from "../components/Layout/Footer/footer";
+import Container from "../components/Layout/Container/container";
 import Rainbow from "../components/Rainbow/rainbow";
 
 const Hero = styled.section`

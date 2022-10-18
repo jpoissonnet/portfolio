@@ -1,11 +1,11 @@
 import { getProjectBySlug, getAllProjects } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
-import NavbarTop from "../../components/NavbarTop/navbartop";
-import Container from "../../components/Container/container";
+import NavbarTop from "../../components/Navigation/NavbarTop/navbartop";
+import Container from "../../components/Layout/Container/container";
 import styled from "styled-components";
 import Image from "next/image";
 import { FC } from "react";
-import Footer from "../../components/Footer/footer";
+import Footer from "../../components/Layout/Footer/footer";
 import { MDXRemote } from "next-mdx-remote";
 import Rainbow from "../../components/Rainbow/rainbow";
 
@@ -23,12 +23,6 @@ type ProjectType = {
     url: string;
   };
   content: string;
-};
-
-type Props = {
-  project: ProjectType;
-  moreProjects: ProjectType[];
-  preview?: boolean;
 };
 
 const Img = styled.div`

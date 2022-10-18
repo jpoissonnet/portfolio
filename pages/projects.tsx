@@ -1,9 +1,9 @@
-import Container from "../components/Container/container";
-import NavbarTop from "../components/NavbarTop/navbartop";
+import Container from "../components/Layout/Container/container";
+import NavbarTop from "../components/Navigation/NavbarTop/navbartop";
 import { getAllProjects } from "../lib/api";
 import { Card } from "../components/Card/card";
 import styled from "styled-components";
-import Footer from "../components/Footer/footer";
+import Footer from "../components/Layout/Footer/footer";
 import { ProjectType } from "../interface/ProjectType";
 
 const Cards = styled.section`
@@ -12,7 +12,7 @@ const Cards = styled.section`
   justify-content: space-between;
 `;
 
-export default function Index({ allProjects }: { allProjects: ProjectType[] }) {
+const Projects = ({ allProjects }: { allProjects: ProjectType[] }) => {
   return (
     <>
       <NavbarTop />
@@ -35,7 +35,9 @@ export default function Index({ allProjects }: { allProjects: ProjectType[] }) {
       <Footer />
     </>
   );
-}
+};
+
+export default Projects;
 
 export const getStaticProps = async () => {
   const allProjects = getAllProjects([

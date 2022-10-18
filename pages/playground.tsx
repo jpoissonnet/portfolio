@@ -1,7 +1,7 @@
 import React from "react";
-import NavbarTop from "../components/NavbarTop/navbartop";
-import Footer from "../components/Footer/footer";
-import Container from "../components/Container/container";
+import NavbarTop from "../components/Navigation/NavbarTop/navbartop";
+import Footer from "../components/Layout/Footer/footer";
+import Container from "../components/Layout/Container/container";
 import Rainbow from "../components/Rainbow/rainbow";
 import styled from "styled-components";
 
