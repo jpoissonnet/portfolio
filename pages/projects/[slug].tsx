@@ -41,6 +41,36 @@ const ProjectContainer = styled.article`
   max-width: 750px;
   gap: 1rem;
   padding: 1rem 1rem;
+
+  & p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-block-end: 0.5rem;
+  }
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  & blockquote > p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    border-left: 2px solid ${({ theme }) => theme.primary};
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    background: ${({ theme }) => theme.dark};
+  }
+
+  & code {
+    color: ${({ theme }) => theme.primary};
+    background: ${({ theme }) => theme.light};
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
 `;
 
 const ProjectTitle = styled.h1`
