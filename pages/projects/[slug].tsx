@@ -8,22 +8,8 @@ import { FC } from "react";
 import Footer from "../../components/Layout/Footer/footer";
 import { MDXRemote } from "next-mdx-remote";
 import Rainbow from "../../components/Rainbow/rainbow";
-
-type ProjectType = {
-  slug: string;
-  title: string;
-  date: string;
-  coverImage: string;
-  author: {
-    name: string;
-    picture: string;
-  };
-  excerpt: string;
-  ogImage: {
-    url: string;
-  };
-  content: string;
-};
+import PillList from "../../components/Pills/pillList";
+import { ProjectType } from "../../interface/ProjectType";
 
 const Img = styled.div`
   flex-basis: 200px;
@@ -95,6 +81,7 @@ const Project: FC<{ project: ProjectType }> = ({ project }) => {
               objectPosition="center"
             />
           </Img>
+          <PillList pills={project.tags} />
           <MDXRemote {...(project.content as any)} components={{ Rainbow }} />
         </ProjectContainer>
       </Container>
@@ -114,6 +101,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     "content",
     "ogImage",
     "coverImage",
+    "tags",
   ]);
   const content = await markdownToHtml(project.content || "");
 

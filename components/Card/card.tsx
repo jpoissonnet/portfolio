@@ -36,7 +36,7 @@ export const Card: FC<{
   src: string;
   alt: string;
   href: string;
-  pills: { color: string; text: string }[];
+  pills: any[];
 }> = ({ children, title, src, alt, href, pills }) => {
   return (
     <Link href={href} passHref>

@@ -1,5 +1,5 @@
 export type ProjectType = {
-  tags: { color: string; text: string }[];
+  tags: any[];
   slug: string;
   title: string;
   date: string;
