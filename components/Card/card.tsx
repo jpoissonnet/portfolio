@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Pill from "../Pills/Pill/pill";
+import PillList from "../Pills/pillList";
 
 const CardContainer = styled.a`
   display: flex;
@@ -10,7 +12,7 @@ const CardContainer = styled.a`
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  height: 400px;
+  height: 350px;
   margin: 2rem 0;
   padding: 1rem 1rem;
   transform: rotate(0.4deg);
@@ -34,7 +36,8 @@ export const Card: FC<{
   src: string;
   alt: string;
   href: string;
-}> = ({ children, title, src, alt, href }) => {
+  pills: { color: string; text: string }[];
+}> = ({ children, title, src, alt, href, pills }) => {
   return (
     <Link href={href} passHref>
       <CardContainer>
@@ -49,6 +52,7 @@ export const Card: FC<{
         </Img>
         <h3>{title}</h3>
         <p>{children}</p>
+        <PillList pills={pills} />
       </CardContainer>
     </Link>
   );

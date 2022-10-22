@@ -26,6 +26,7 @@ const Projects = ({ allProjects }: { allProjects: ProjectType[] }) => {
                 src={project.coverImage}
                 alt={project.title}
                 href={`/projects/${project.slug}`}
+                pills={project.tags}
               >
                 {project.excerpt}
               </Card>
@@ -47,6 +48,7 @@ export const getStaticProps = async () => {
     "author",
     "coverImage",
     "excerpt",
+    "tags",
   ]);
 
   return {
