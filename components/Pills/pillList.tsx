@@ -13,7 +13,7 @@ const PillList: FC<{
 }> = ({ pills }) => {
   return !!pills ? (
     <PillListRoot>
-      {pills.map((pill) => {
+      {pills.map((pill, index) => {
         let pillKey, pillColor;
         if (pill[0].length > 1) {
           pillKey = pill[0];
@@ -22,8 +22,9 @@ const PillList: FC<{
           pillKey = pill;
           pillColor = null;
         }
+        console.log(index);
         return (
-          <Pill key={pillKey} color={pillColor}>
+          <Pill key={pillKey} color={pillColor} rank={index}>
             {pillKey}
           </Pill>
         );

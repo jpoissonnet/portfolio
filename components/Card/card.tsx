@@ -2,10 +2,10 @@ import styled from "styled-components";
 import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Pill from "../Pills/Pill/pill";
 import PillList from "../Pills/pillList";
+import { PillRoot } from "../Pills/Pill/pill";
 
-const CardContainer = styled.a`
+export const CardContainer = styled.a`
   display: flex;
   flex: 1 1 300px;
   flex-direction: column;
@@ -23,6 +23,13 @@ const CardContainer = styled.a`
   &:hover {
     transform: rotate(-0.4deg);
     opacity: 1;
+    
+  ${PillRoot} {
+    color: ${({ theme }) => theme.dark};
+    border: 1px solid ${({ theme }) => theme.dark};
+    &::before {
+      left: 0;
+    }
   }
 `;
 const Img = styled.div`
