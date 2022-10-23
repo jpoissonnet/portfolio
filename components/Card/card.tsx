@@ -2,15 +2,16 @@ import styled from "styled-components";
 import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PillList from "../Pills/pillList";
 
-const CardContainer = styled.a`
+export const CardContainer = styled.a`
   display: flex;
   flex: 1 1 300px;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  height: 400px;
+  height: 350px;
   margin: 2rem 0;
   padding: 1rem 1rem;
   transform: rotate(0.4deg);
@@ -21,6 +22,13 @@ const CardContainer = styled.a`
   &:hover {
     transform: rotate(-0.4deg);
     opacity: 1;
+    
+ & ul > li {
+    color: ${({ theme }) => theme.dark};
+    border: 1px solid ${({ theme }) => theme.dark};
+    &::before {
+      left: 0;
+    }
   }
 `;
 const Img = styled.div`
@@ -34,7 +42,8 @@ export const Card: FC<{
   src: string;
   alt: string;
   href: string;
-}> = ({ children, title, src, alt, href }) => {
+  pills: any[];
+}> = ({ children, title, src, alt, href, pills }) => {
   return (
     <Link href={href} passHref>
       <CardContainer>
@@ -49,6 +58,7 @@ export const Card: FC<{
         </Img>
         <h3>{title}</h3>
         <p>{children}</p>
+        <PillList pills={pills} />
       </CardContainer>
     </Link>
   );

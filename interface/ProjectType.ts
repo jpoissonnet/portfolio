@@ -1,4 +1,5 @@
 export type ProjectType = {
+  tags: any[];
   slug: string;
   title: string;
   date: string;

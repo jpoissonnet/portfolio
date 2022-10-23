@@ -8,22 +8,8 @@ import { FC } from "react";
 import Footer from "../../components/Layout/Footer/footer";
 import { MDXRemote } from "next-mdx-remote";
 import Rainbow from "../../components/Rainbow/rainbow";
-
-type ProjectType = {
-  slug: string;
-  title: string;
-  date: string;
-  coverImage: string;
-  author: {
-    name: string;
-    picture: string;
-  };
-  excerpt: string;
-  ogImage: {
-    url: string;
-  };
-  content: string;
-};
+import PillList from "../../components/Pills/pillList";
+import { ProjectType } from "../../interface/ProjectType";
 
 const Img = styled.div`
   flex-basis: 200px;
@@ -41,6 +27,36 @@ const ProjectContainer = styled.article`
   max-width: 750px;
   gap: 1rem;
   padding: 1rem 1rem;
+
+  & p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-block-end: 0.5rem;
+  }
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  & blockquote > p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    border-left: 2px solid ${({ theme }) => theme.primary};
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    background: ${({ theme }) => theme.dark};
+  }
+
+  & code {
+    color: ${({ theme }) => theme.primary};
+    background: ${({ theme }) => theme.light};
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
 `;
 
 const ProjectTitle = styled.h1`
@@ -65,6 +81,7 @@ const Project: FC<{ project: ProjectType }> = ({ project }) => {
               objectPosition="center"
             />
           </Img>
+          <PillList pills={project.tags} />
           <MDXRemote {...(project.content as any)} components={{ Rainbow }} />
         </ProjectContainer>
       </Container>
@@ -84,6 +101,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     "content",
     "ogImage",
     "coverImage",
+    "tags",
   ]);
   const content = await markdownToHtml(project.content || "");
 
