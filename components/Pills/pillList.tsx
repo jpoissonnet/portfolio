@@ -22,7 +22,6 @@ const PillList: FC<{
           pillKey = pill;
           pillColor = null;
         }
-        console.log(index);
         return (
           <Pill key={pillKey} color={pillColor} rank={index}>
             {pillKey}

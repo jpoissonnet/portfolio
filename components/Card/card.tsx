@@ -3,7 +3,6 @@ import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PillList from "../Pills/pillList";
-import { PillRoot } from "../Pills/Pill/pill";
 
 export const CardContainer = styled.a`
   display: flex;
@@ -24,7 +23,7 @@ export const CardContainer = styled.a`
     transform: rotate(-0.4deg);
     opacity: 1;
     
-  ${PillRoot} {
+ & ul > li {
     color: ${({ theme }) => theme.dark};
     border: 1px solid ${({ theme }) => theme.dark};
     &::before {
