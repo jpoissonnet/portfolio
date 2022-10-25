@@ -65,7 +65,6 @@ const Resume = () => {
               <span>2020-2022</span>
             </li>
           </ul>
-
         </section>
       </ResumeRoot>
     </>
