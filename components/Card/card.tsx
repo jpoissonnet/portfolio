@@ -35,6 +35,7 @@ const Img = styled.div`
   flex: 0 0 60%;
   width: 100%;
   position: relative;
+  object-fit: cover;
 `;
 export const Card: FC<{
   children: ReactNode;
@@ -51,9 +52,8 @@ export const Card: FC<{
           <Image
             src={src}
             alt={alt}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            fill={true}
+            style={{ objectFit: "cover", objectPosition: "bottom" }}
           />
         </Img>
         <h3>{title}</h3>

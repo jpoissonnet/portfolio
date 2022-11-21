@@ -17,9 +17,7 @@ export const NavLinkMobile: FC<{
   return (
     <MobileNavLink>
       <Link passHref href={href}>
-        <a>
           {router.pathname === href ? <Rainbow>{children}</Rainbow> : children}
-        </a>
       </Link>
     </MobileNavLink>
   );

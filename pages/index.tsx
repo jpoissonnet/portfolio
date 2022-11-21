@@ -62,13 +62,11 @@ const Button = styled.a`
       ${({ theme }) => theme.secondary} 0%,
       ${({ theme }) => theme.primary} 100%
     );
-    visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-in-out;
   }
 
   &:hover::before {
-    visibility: visible;
     opacity: 1;
   }
 `;

@@ -40,12 +40,13 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.lightest};
   position: relative;
+  padding: 1rem;
 
   &:after {
     display: block;
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     left: 0;
     visibility: hidden;
     opacity: 0;
@@ -58,8 +59,8 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
   }
 
   ${({ router, href }) =>
-    router.pathname === href &&
-    `
+          router.pathname === href &&
+          `
         &:after {
           visibility: visible;
           opacity: 1;
@@ -78,9 +79,6 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
 }
 `;
 
-const A = styled.a`
-  padding: 1rem;
-`;
 
 const NavLink: FC<{
   children: ReactNode;
@@ -90,7 +88,7 @@ const NavLink: FC<{
   return (
     <NavItem router={router} href={href}>
       <Link passHref href={href}>
-        <A>{children}</A>
+        {children}
       </Link>
     </NavItem>
   );

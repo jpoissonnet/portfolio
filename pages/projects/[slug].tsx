@@ -76,9 +76,7 @@ const Project: FC<{ project: ProjectType }> = ({ project }) => {
             <Image
               src={project.coverImage}
               alt={project.title}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
+              fill={true}
             />
           </Img>
           <PillList pills={project.tags} />
