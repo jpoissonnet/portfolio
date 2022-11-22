@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-import { NextRouter } from "next/router";
+"use client";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLinkMobile } from "./navLinkMobile";
 
@@ -28,7 +28,7 @@ const Bar = styled.span`
   position: absolute;
   height: 3px;
   width: 100%;
-  background: ${({ theme }) => theme.lightest};
+  background: ${({ theme }) => theme?.lightest};
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
   z-index: 20;
@@ -83,7 +83,7 @@ const MobileNavLinks = styled.ul`
   list-style: none;
 `;
 
-export const NavMobile: FC<{ router: NextRouter }> = ({ router }) => {
+export const NavMobile = () => {
   const [displayed, setDisplay] = useState(false);
   return (
     <>
@@ -99,18 +99,10 @@ export const NavMobile: FC<{ router: NextRouter }> = ({ router }) => {
       </Hamburger>
       <MobileNav displayed={displayed}>
         <MobileNavLinks>
-          <NavLinkMobile router={router} href={"/"}>
-            Home
-          </NavLinkMobile>
-          <NavLinkMobile router={router} href={"/projects"}>
-            Projects
-          </NavLinkMobile>
-          <NavLinkMobile router={router} href={"/playground"}>
-            Playground
-          </NavLinkMobile>
-          <NavLinkMobile router={router} href={"/resume"}>
-            Resume
-          </NavLinkMobile>
+          <NavLinkMobile href={"/"}>Home</NavLinkMobile>
+          <NavLinkMobile href={"/projects"}>Projects</NavLinkMobile>
+          <NavLinkMobile href={"/playground"}>Playground</NavLinkMobile>
+          <NavLinkMobile href={"/resume"}>Resume</NavLinkMobile>
         </MobileNavLinks>
       </MobileNav>
     </>

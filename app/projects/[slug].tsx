@@ -1,15 +1,12 @@
-import { getProjectBySlug, getAllProjects } from "../../lib/api";
+import { getAllProjects, getProjectBySlug } from "../../lib/api";
+import Rainbow from "../../styles/rainbow";
+import { ProjectType } from "../../interface/ProjectType";
 import markdownToHtml from "../../lib/markdownToHtml";
-import NavbarTop from "../../components/Navigation/NavbarTop/navbartop";
-import Container from "../../components/Layout/Container/container";
+import PillList from "../../components/Pills/pillList";
+import { FC } from "react";
+import { MDXRemote } from "next-mdx-remote";
 import styled from "styled-components";
 import Image from "next/image";
-import { FC } from "react";
-import Footer from "../../components/Layout/Footer/footer";
-import { MDXRemote } from "next-mdx-remote";
-import Rainbow from "../../components/Rainbow/rainbow";
-import PillList from "../../components/Pills/pillList";
-import { ProjectType } from "../../interface/ProjectType";
 
 const Img = styled.div`
   flex-basis: 200px;
@@ -67,24 +64,14 @@ const ProjectTitle = styled.h1`
 
 const Project: FC<{ project: ProjectType }> = ({ project }) => {
   return (
-    <>
-      <NavbarTop />
-      <Container>
-        <ProjectContainer>
-          <ProjectTitle>{project.title}</ProjectTitle>
-          <Img>
-            <Image
-              src={project.coverImage}
-              alt={project.title}
-              fill={true}
-            />
-          </Img>
-          <PillList pills={project.tags} />
-          <MDXRemote {...(project.content as any)} components={{ Rainbow }} />
-        </ProjectContainer>
-      </Container>
-      <Footer />
-    </>
+    <ProjectContainer>
+      <ProjectTitle>{project.title}</ProjectTitle>
+      <Img>
+        <Image src={project.coverImage} alt={project.title} fill={true} />
+      </Img>
+      <PillList pills={project.tags} />
+      <MDXRemote {...(project.content as any)} components={{ Rainbow }} />
+    </ProjectContainer>
   );
 };
 

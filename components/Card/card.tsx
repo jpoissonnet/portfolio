@@ -22,14 +22,15 @@ export const CardContainer = styled.a`
   &:hover {
     transform: rotate(-0.4deg);
     opacity: 1;
-    
- & ul > li {
-    color: ${({ theme }) => theme.dark};
-    border: 1px solid ${({ theme }) => theme.dark};
-    &::before {
-      left: 0;
+
+    & ul > li {
+      color: ${({ theme }) => theme.dark};
+      border: 1px solid ${({ theme }) => theme.dark};
+
+      &::before {
+        left: 0;
+      }
     }
-  }
 `;
 const Img = styled.div`
   flex: 0 0 60%;

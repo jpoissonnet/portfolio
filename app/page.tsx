@@ -1,10 +1,8 @@
-import type { NextPage } from "next";
-import styled from "styled-components";
-import NavbarTop from "../components/Navigation/NavbarTop/navbartop";
+"use client";
+import { NextPage } from "next";
 import Link from "next/link";
-import Footer from "../components/Layout/Footer/footer";
-import Container from "../components/Layout/Container/container";
-import Rainbow from "../components/Rainbow/rainbow";
+import styled from "styled-components";
+import Rainbow from "../styles/rainbow";
 
 const Hero = styled.section`
   display: flex;
@@ -78,33 +76,27 @@ const Emoji = styled.span`
 `;
 
 const Home: NextPage = () => (
-  <>
-    <NavbarTop />
-    <Container>
-      <Hero>
-        <Title>
-          Hello,
-          <br />
-          <Rainbow>
-            I am Jules,
-            <br /> nice to meet you.
-          </Rainbow>
-        </Title>
-        <Description>
-          I like to learn things, and I like to share what I learn.
-          <br /> I am a frontend apprentice, and I am currently learning React
-          and Next.js.
-        </Description>
-        <Link href={"/projects"} passHref>
-          <Button>
-            <span>See my projects</span>
-            <Emoji>👉</Emoji>
-          </Button>
-        </Link>
-      </Hero>
-    </Container>
-    <Footer />
-  </>
+  <Hero>
+    <Title>
+      Hello,
+      <br />
+      <Rainbow>
+        I am Jules,
+        <br /> nice to meet you.
+      </Rainbow>
+    </Title>
+    <Description>
+      I like to learn things, and I like to share what I learn.
+      <br /> I am a frontend apprentice, and I am currently learning React and
+      Next.js.
+    </Description>
+    <Link href={"/projects"} passHref>
+      <Button>
+        <span>See my projects</span>
+        <Emoji>👉</Emoji>
+      </Button>
+    </Link>
+  </Hero>
 );
 
 export default Home;

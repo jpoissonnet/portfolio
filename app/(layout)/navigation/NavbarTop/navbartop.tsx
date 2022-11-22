@@ -1,8 +1,9 @@
-import React, { FC, ReactNode } from "react";
+"use client";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { NextRouter, useRouter } from "next/router";
 import { NavMobile } from "../NavMobile/navMobile";
+import { usePathname } from "next/navigation";
 
 const Navbar = styled.nav`
   display: flex;
@@ -36,7 +37,7 @@ const NavItems = styled.ul`
   }
 `;
 
-const NavItem = styled.li<{ router: NextRouter; href: string }>`
+const NavItem = styled.li<{ $isActive: boolean }>`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.lightest};
   position: relative;
@@ -58,9 +59,9 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
     transition: all 0.3s ease-in-out;
   }
 
-  ${({ router, href }) =>
-          router.pathname === href &&
-          `
+  ${({ $isActive }) =>
+    $isActive
+      ? `
         &:after {
           visibility: visible;
           opacity: 1;
@@ -69,7 +70,8 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
           height: 5px;
           border-radius: 100px;
         }
-      `}
+      `
+      : null}
 }
 
 &:hover:after {
@@ -79,43 +81,27 @@ const NavItem = styled.li<{ router: NextRouter; href: string }>`
 }
 `;
 
-
-const NavLink: FC<{
-  children: ReactNode;
-  href: string;
-  router: NextRouter;
-}> = ({ children, href, router }) => {
+const NavLink = ({ children, href }: { children: ReactNode; href: string }) => {
   return (
-    <NavItem router={router} href={href}>
-      <Link passHref href={href}>
-        {children}
-      </Link>
+    <NavItem $isActive={usePathname() === href}>
+      <Link href={href}>{children}</Link>
     </NavItem>
   );
 };
 
 const NavbarTop = () => {
-  const router = useRouter();
   return (
     <Navbar>
       <NavWrap>
         <Name>
           <Link href={"/"}>Jules P.</Link>
         </Name>
-        <NavMobile router={router} />
+        <NavMobile />
         <NavItems>
-          <NavLink router={router} href={"/"}>
-            Home
-          </NavLink>
-          <NavLink router={router} href={"/projects"}>
-            Projects
-          </NavLink>
-          <NavLink router={router} href={"/playground"}>
-            Playground
-          </NavLink>
-          <NavLink router={router} href={"/resume"}>
-            Resume
-          </NavLink>
+          <NavLink href={"/"}>Home</NavLink>
+          <NavLink href={"/projects"}>Projects</NavLink>
+          <NavLink href={"/playground"}>Playground</NavLink>
+          <NavLink href={"/resume"}>Resume</NavLink>
         </NavItems>
       </NavWrap>
     </Navbar>

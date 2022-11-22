@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-export const PillRoot = styled.li<{ color: string | undefined, rank: number }>`
+export const PillRoot = styled.li<{ color: string | undefined; rank: number }>`
   position: relative;
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -24,19 +24,29 @@ export const PillRoot = styled.li<{ color: string | undefined, rank: number }>`
     border-radius: inherit;
     top: 0;
     left: -100%;
-    background-image: linear-gradient(${({ theme, color }) => color || theme.lightest},
-    ${({ theme, color }) => color || theme.lightest});
+    background-image: linear-gradient(
+      ${({ theme, color }) => color || theme.lightest},
+      ${({ theme, color }) => color || theme.lightest}
+    );
     transition: left 0.3s ease-in-out;
     transition-delay: ${({ rank }) => rank * 50}ms;
   }
 `;
 
-const Pill: FC<{ children: ReactNode; color: string; rank: number }> = ({
-                                                                          children,
-                                                                          color,
-                                                                          rank
-                                                                        }) => {
-  return <PillRoot rank={rank} color={color}>{children}</PillRoot>;
+const Pill = ({
+  children,
+  color,
+  rank,
+}: {
+  children: ReactNode;
+  color: string;
+  rank: number;
+}) => {
+  return (
+    <PillRoot rank={rank} color={color}>
+      {children}
+    </PillRoot>
+  );
 };
 
 export default Pill;
