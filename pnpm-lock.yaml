@@ -4,14 +4,15 @@ specifiers:
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
-  autoprefixer: ^10.4.13
+  autoprefixer: 10.4.13
   eslint: 8.28.0
   eslint-config-next: 13.0.4
   next: 13.0.4
-  postcss: ^8.4.19
+  postcss: 8.4.19
+  prettier: ^2.8.0
   react: 18.2.0
   react-dom: 18.2.0
-  tailwindcss: ^3.2.4
+  tailwindcss: 3.2.4
   typescript: 4.9.3
 
 dependencies:
@@ -21,6 +22,7 @@ dependencies:
   eslint: 8.28.0
   eslint-config-next: 13.0.4_hsf322ms6xhhd4b5ne6lb74y4a
   next: 13.0.4_biqbaboplfbrettd7655fr4n2y
+  prettier: 2.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   typescript: 4.9.3
@@ -1860,6 +1862,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: false
+
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: false
 
   /prop-types/15.8.1:
