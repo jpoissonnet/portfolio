@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body>
         <NavbarTop />
-        {children}
+        <main className={"max-w-screen-lg m-auto px-4"}>{children}</main>
       </body>
     </html>
   );
