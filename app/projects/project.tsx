@@ -5,7 +5,7 @@ import Image from "next/image";
 const Project = ({ project }: any) => {
   return (
     <Link
-      href={project.slug}
+      href={"projects/" + project.slug}
       className={
         "flex basis-[250px] flex-col justify-between items-start gap-1 h-[350px] m-4 p-2 " +
         "border border-transparent hover:border-slate-50 rounded transition-all duration-300 ease-in-out "
