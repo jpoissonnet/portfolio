@@ -4,7 +4,7 @@ import { NavMobile } from "./mobilenav";
 
 const NavbarTop = () => {
   return (
-    <nav className={"flex justify-between items-center h-16 bg-slate-800"}>
+    <nav className={"relative z-10 flex justify-between items-center h-16 bg-slate-800"}>
       <div
         className={
           "flex justify-between items-center w-full max-w-screen-lg mx-auto px-4"
