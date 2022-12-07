@@ -5,15 +5,15 @@ import { ReactNode } from "react";
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      {/*
+    {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
-      <body>
-        <NavbarTop />
-        <main className={"max-w-screen-lg m-auto px-4"}>{children}</main>
-      </body>
+    <head />
+    <body>
+    <NavbarTop />
+    <main className={"relative z-0 gmax-w-screen-lg m-auto px-4"}>{children}</main>
+    </body>
     </html>
   );
 }
