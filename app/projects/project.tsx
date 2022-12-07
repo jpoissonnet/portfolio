@@ -7,7 +7,7 @@ const Project = ({ project }: any) => {
     <Link
       href={"projects/" + project.slug}
       className={
-        "flex basis-[250px] flex-col justify-between items-start gap-1 h-[350px] m-4 p-2 " +
+        "flex grow basis-[300px] flex-col items-start h-[350px] p-2 " +
         "border border-transparent hover:border-slate-50 rounded transition-all duration-300 ease-in-out "
       }
     >

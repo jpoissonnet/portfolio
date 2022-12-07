@@ -9,7 +9,7 @@ const Page = async () => {
     "date",
     "excerpt",
     "coverImage",
-    "alt",
+    "alt"
   ]);
   return (
     <>
