@@ -4,14 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const NavLinkMobile = ({
-  children,
-  href,
-}: {
+                                children,
+                                href
+                              }: {
   children: ReactNode;
   href: string;
 }) => {
   return (
-    <li className={"text-xl text-accent-slate-80"}>
+    <li className={"text-xl text-accent-slate-80"} onClick={
+      () => {
+        (document.querySelector("input[type=checkbox]") as HTMLElement).click();
+      }
+    }>
       <Link href={href}>
         {usePathname() === href ? (
           <span
