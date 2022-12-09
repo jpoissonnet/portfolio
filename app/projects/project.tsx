@@ -27,7 +27,7 @@ const Project = ({ project }: any) => {
       </div>
       <h3 className={"text-xl font-bold"}>{project.title}</h3>
       <p className={"text-sm"}>{project.excerpt}</p>
-      <div className={"flex flex-wrap gap-3"}>
+      <div className={"flex flex-wrap gap-3 my-4 "}>
         {project.tags.map((tag: any) => (
           <Pill key={tag[0]} color={tag[1]} rank={1}>
             {tag[0]}
