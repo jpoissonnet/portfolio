@@ -10,7 +10,7 @@ const Page = async () => {
     "excerpt",
     "coverImage",
     "alt",
-    "tags"
+    "tags",
   ]);
   return (
     <>
