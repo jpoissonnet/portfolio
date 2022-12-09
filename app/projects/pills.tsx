@@ -9,7 +9,6 @@ const Pill = ({
   rank: number;
   children: ReactNode;
 }) => {
-  console.log(color, `bg-${color}-500`);
   return (
     <li
       className={
