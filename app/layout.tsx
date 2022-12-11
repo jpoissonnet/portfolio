@@ -11,9 +11,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className={"bg-neutral-900"}>
         <NavbarTop />
-        <main className={"relative z-0 max-w-screen-lg m-auto px-4"}>
+        <main className={"relative z-0 max-w-screen-lg m-auto p-4 md:p-8"}>
           {children}
         </main>
         <Footer />

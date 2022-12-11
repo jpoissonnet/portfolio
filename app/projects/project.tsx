@@ -8,7 +8,7 @@ const Project = ({ project }: any) => {
     <Link
       href={"projects/" + project.slug}
       className={
-        "flex flex-col grow basis-[300px] justify-around h-[350px] p-2 " +
+        "flex flex-col grow basis-[300px] justify-between h-[350px] m-2 p-2 " +
         "border border-transparent hover:border-slate-50 rounded transition-all duration-300 ease-in-out group"
       }
     >
@@ -27,7 +27,7 @@ const Project = ({ project }: any) => {
       </div>
       <h3 className={"text-xl font-bold"}>{project.title}</h3>
       <p className={"text-sm"}>{project.excerpt}</p>
-      <div className={"flex flex-wrap gap-3 my-4 "}>
+      <div className={"flex flex-wrap gap-3 "}>
         {project.tags.map((tag: any) => (
           <Pill key={tag[0]} color={tag[1]} rank={1}>
             {tag[0]}
