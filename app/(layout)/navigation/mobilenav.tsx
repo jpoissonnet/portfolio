@@ -8,6 +8,7 @@ export const NavMobile = () => {
     <>
       <div className={"block relative h-[30px] w-[40px] md:hidden"}>
         <input
+          aria-label={"Toggle mobile navigation"}
           type="checkbox"
           defaultChecked={displayed}
           onChange={() => setDisplay(!displayed)}
