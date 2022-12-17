@@ -3,7 +3,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <section
-      className={"flex flex-col justify-around py-24 gap-12 items-start"}
+      className={
+        "flex flex-col justify-around py-12 md:py-24 gap-12 items-start"
+      }
     >
       <h2
         className={
