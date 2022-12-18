@@ -9,3 +9,21 @@ tags: [['HTML','orange'],['Node.js','green'],['Bootstrap','purple']]
 
 I wanted to control my computer from my bed, so I made this project.
 It's a remote controller to control your mouse and your keyboard from your bed (lit is bed in French).
+More than that it was the first time I used Node.js and I wanted to try it. Moreover, I had heard of Websockets and I
+wanted to try it too.
+
+# How it works ?
+
+The project is served by an Express server, which is a Node.js framework. The server is listening on port 3000 and
+serves the static files (HTML, CSS, JS) and the Websocket server. The Websocket server is listening on port 8080.
+
+When the user connects to the server, the server sends him the HTML file. The HTML file contains the CSS and the JS to make
+the page interactive and to connect to the Websocket server. When the user connects to the Websocket server, the server
+listens to the events sent by the client, which will be interpreted by the server and sent to the computer.
+
+# Retrospective
+
+I really enjoyed this project, it was the first time I used Node.js and I really liked it. It is really the project that
+I did without any guidelines I like it as much as I know I could do better now. I may come back to this project in the
+future to improve it with the knowledge I have now.
+
