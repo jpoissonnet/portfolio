@@ -1,8 +1,15 @@
 import React from "react";
-import { getProjectBySlug } from "../projectsConnector";
+import { getAllProjects, getProjectBySlug } from "../projectsConnector";
 import Image from "next/image";
 import Content from "./content";
 import { serialize } from "next-mdx-remote/serialize";
+
+export function generateStaticParams() {
+  const projects = getAllProjects(["slug"]);
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
 const Page = async ({ params }: { params: any }) => {
   const project = getProjectBySlug(params.slug, [
