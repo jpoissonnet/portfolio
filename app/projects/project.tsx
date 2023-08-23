@@ -3,7 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import Pill from "./pills";
 
-const Project = ({ project }: any) => {
+type Project = {
+  slug: string;
+  coverImage: string;
+  alt: string;
+  tags: Array<Array<string>>;
+  title: string;
+  excerpt: string;
+};
+
+const Project = ({ project }: { project: Project }) => {
   return (
     <Link
       href={"projects/" + project.slug}
@@ -23,11 +32,13 @@ const Project = ({ project }: any) => {
       <h3 className={"text-xl font-bold"}>{project.title}</h3>
       <p className={"text-sm"}>{project.excerpt}</p>
       <div className={"flex flex-wrap gap-3 "}>
-        {project.tags.map((tag: any) => (
-          <Pill key={tag[0]} color={tag[1]} rank={1}>
-            {tag[0]}
-          </Pill>
-        ))}
+        {project.tags.map((tag, index) => {
+          return (
+            <Pill key={tag[0]} color={tag[1]} rank={index}>
+              {tag[0]}
+            </Pill>
+          );
+        })}
       </div>
     </Link>
   );

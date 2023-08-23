@@ -3,10 +3,10 @@ module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {}
+    extend: {},
   },
   safelist: [
     "bg-red-800",
@@ -20,7 +20,12 @@ module.exports = {
     "bg-pink-800",
     "bg-gray-800",
     "bg-cyan-800",
-    "bg-slate-800"
+    "bg-slate-800",
+    "delay-75",
+    "delay-150",
+    "delay-200",
+    "delay-300",
+    "delay-500",
   ],
-  plugins: []
+  plugins: [],
 };
