@@ -11,7 +11,7 @@ const NavbarTop = () => {
     >
       <div
         className={
-          "flex justify-between items-center w-full max-w-screen-lg mx-auto px-4 md:px-8"
+          "flex justify-between items-center w-full max-w-screen-xl mx-auto px-4 md:px-8"
         }
       >
         <Link href={"/"}>

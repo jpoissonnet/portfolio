@@ -8,16 +8,11 @@ const Project = ({ project }: any) => {
     <Link
       href={"projects/" + project.slug}
       className={
-        "flex flex-col grow basis-[300px] justify-between h-[350px] m-2 p-2 " +
+        "flex flex-col grow basis-[300px] max-w-[500px] justify-between min-h-[350px] m-2 p-2 gap-4 " +
         "border border-transparent hover:border-slate-50 rounded transition-all duration-300 ease-in-out group"
       }
     >
-      <div
-        className={
-          "flex-shrink-0 flex-grow-0 basis-1/2 w-full relative " +
-          "transition-all duration-300"
-        }
-      >
+      <div className={"basis-1/2 w-full relative transition-all duration-300"}>
         <Image
           src={project.coverImage}
           alt={project.alt ?? "decorative image"}

@@ -12,7 +12,7 @@ const Pill = ({
   return (
     <li
       className={
-        "relative inline-block py-1 px-3 text-slate-50 rounded-xl border border-solid font-light tracking-tighter transition-all overflow-hidden " +
+        "inline-block py-1 px-3 text-slate-50 rounded-xl border border-solid font-light tracking-tighter transition-all overflow-hidden " +
         `bg-${color}-800`
       }
     >

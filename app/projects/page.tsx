@@ -15,7 +15,7 @@ const Page = async () => {
   return (
     <>
       <h2 className={"text-3xl font-bold my-8"}>Projects</h2>
-      <div className={"flex flex-wrap justify-between"}>
+      <div className={"flex flex-wrap justify-center gap-2"}>
         {projects.length &&
           projects.map((project) => (
             <Project project={project} key={project.slug} />

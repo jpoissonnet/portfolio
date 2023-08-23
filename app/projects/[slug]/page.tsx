@@ -20,15 +20,19 @@ const Page = async ({ params }: { params: any }) => {
   return (
     <>
       <h1 className={"text-5xl mb-5"}>{project.title}</h1>
-      <div className={"relative h-32 md:h-64 w-full my-8 md:my-4"}>
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill={true}
-          style={{ objectFit: "cover", objectPosition: "bottom" }}
-        />
-      </div>
-      <Content content={await serialize(project.content)} />
+      <section className={"flex flex-wrap justify-between gap-3"}>
+        <div className={"w-[700px] flex-shrink"}>
+          <Content content={await serialize(project.content)} />
+        </div>
+        <div className={"relative flex-1 h-64"}>
+          <Image
+            src={project.coverImage}
+            alt={project.title}
+            fill={true}
+            style={{ objectFit: "cover", objectPosition: "bottom" }}
+          />
+        </div>
+      </section>
     </>
   );
 };

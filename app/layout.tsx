@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body className={"bg-neutral-900"}>
         <NavbarTop />
-        <main className={"relative z-0 max-w-screen-lg m-auto p-4 md:p-8"}>
+        <main className={"relative z-0 max-w-screen-xl m-auto p-4 md:p-8"}>
           {children}
         </main>
         <Footer />
