@@ -26,29 +26,31 @@
 .topBar {
   composes: bar;
   top: 0;
-  .hiddenCheckbox:checked ~ & {
-    top: 50%;
-    transform: rotate(45deg) translateY(-50%);
-  }
+}
+.hiddenCheckbox:checked ~ .topBar {
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
 }
 
 .middleBar {
   composes: bar;
   top: 50%;
   transform: translateY(-50%);
-  .hiddenCheckbox:checked ~ & {
-    opacity: 0;
-    transform: rotate(-45deg);
-  }
+}
+
+.hiddenCheckbox:checked ~ .middleBar {
+  opacity: 0;
+  transform: rotate(-45deg);
 }
 
 .bottomBar {
   composes: bar;
   bottom: 0;
-  .hiddenCheckbox:checked ~ & {
-    bottom: 50%;
-    transform: rotate(-45deg) translateY(50%);
-  }
+}
+
+.hiddenCheckbox:checked ~ & {
+  bottom: 50%;
+  transform: rotate(-45deg) translateY(50%);
 }
 
 .mobileLinkWrapper {
@@ -66,9 +68,9 @@
   list-style: none;
   transition: all 0.3s ease-in-out;
   transform: translateY(-100%);
-  .hiddenCheckbox:checked ~ & {
-    transform: translateY(0);
-  }
+}
+.hiddenCheckbox:checked ~ .mobileLinkWrapper {
+  transform: translateY(0);
 }
 
 @media (min-width: 768px) {

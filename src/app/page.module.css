@@ -37,8 +37,9 @@
   background-image: linear-gradient(to right, var(--blue), var(--purple));
   filter: hue-rotate(0) saturate(100%);
   transition: filter 200ms ease-in-out, transform 150ms ease-in-out;
-  &:hover {
-    filter: hue-rotate(70deg) saturate(50%);
-    transform: scale(1.02);
-  }
+}
+
+.button:hover {
+  filter: hue-rotate(70deg) saturate(50%);
+  transform: scale(1.02);
 }

@@ -12,7 +12,7 @@ type Project = {
   excerpt: string;
 };
 
-const Project = ({ project }: { project: Project }) => {
+const Project = ({ project }: { project: any }) => {
   return (
     <Link
       href={"projects/" + project.slug}
