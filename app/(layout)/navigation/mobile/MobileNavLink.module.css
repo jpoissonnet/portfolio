@@ -1,0 +1,12 @@
+.item {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--text-color);
+}
+
+.active {
+  font-weight: bold;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--blue), var(--purple));
+  background-clip: text;
+}

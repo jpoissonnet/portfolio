@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 3rem 0;
+  gap: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.375em;
+  font-weight: bold;
+  color: var(--text-color);
+  letter-spacing: -0.025em;
+}
+
+.emphasis {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, var(--blue), var(--purple));
+}
+
+.description {
+  font-size: 1.5rem;
+  line-height: 1.75em;
+  font-weight: 300;
+  color: var(--text-color);
+  letter-spacing: -0.025em;
+}
+
+.button {
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  letter-spacing: -0.025em;
+  background-image: linear-gradient(to right, var(--blue), var(--purple));
+  filter: hue-rotate(0) saturate(100%);
+  transition: filter 200ms ease-in-out, transform 150ms ease-in-out;
+  &:hover {
+    filter: hue-rotate(70deg) saturate(50%);
+    transform: scale(1.02);
+  }
+}

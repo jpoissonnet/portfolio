@@ -1,21 +1,21 @@
 import "./globals.css";
-import NavbarTop from "./(layout)/navigation/navbar";
+import Navbar from "./(layout)/navigation/Navbar";
 import { ReactNode } from "react";
 import Footer from "./(layout)/footer";
+import "./layout.module.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body className={"bg-neutral-900"}>
-        <NavbarTop />
-        <main className={"relative z-0 max-w-screen-xl m-auto p-4 md:p-8"}>
-          {children}
-        </main>
+      <head>
+        <title>Jules P.</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="description" content="Jules Poissonnet's portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <Navbar />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
