@@ -4,18 +4,9 @@ import Image from "next/image";
 import Pill from "./Pill";
 import style from "./ProjectCard.module.css";
 
-type Project = {
-  slug: string;
-  coverImage: string;
-  alt: string;
-  tags: Array<Array<string>>;
-  title: string;
-  excerpt: string;
-};
-
 const ProjectCard = ({ project }: { project: any }) => {
   return (
-    <Link href={"projects/" + project.slug} className={style.wrapper}>
+    <Link href={`projects/${  project.slug}`} className={style.wrapper}>
       <div className={style.image}>
         <Image
           src={project.coverImage}

@@ -12,7 +12,8 @@ export const MobileNavLink = ({
   href: string;
 }) => {
   const pathname = usePathname();
-  return (
+  
+return (
     <li
       className={style.item}
       onClick={() => {
