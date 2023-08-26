@@ -16,7 +16,8 @@ const Content = ({ content }: { content: any }) => {
     a: (props: any) => <a className={style.a} {...props} />,
     ul: (props: any) => <ul className={style.ul} {...props} />,
   };
-  return <MDXRemote {...content} components={components} />;
+  
+return <MDXRemote {...content} components={components} />;
 };
 
 export default Content;

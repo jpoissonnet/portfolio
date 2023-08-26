@@ -7,7 +7,8 @@ import style from "./NavLink.module.css";
 
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => {
   const isActive = usePathname() === href;
-  return (
+  
+return (
     <li className={isActive ? style.active : style.item}>
       <Link href={href}>{children}</Link>
     </li>

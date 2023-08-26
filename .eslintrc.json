@@ -1,3 +1,15 @@
 {
-  "extends": "next"
+  "extends": ["eslint:recommended","next", "prettier"],
+  "rules": {
+    "react/no-array-index-key": "error",
+    "newline-before-return": "error",
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-unused-vars": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
 }

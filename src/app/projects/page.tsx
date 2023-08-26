@@ -13,7 +13,8 @@ const Page = async () => {
     "alt",
     "tags",
   ]);
-  return (
+  
+return (
     <>
       <h2 className={style.title}>Projects</h2>
       <section className={style.projects}>
