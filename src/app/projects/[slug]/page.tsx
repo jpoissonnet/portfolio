@@ -1,8 +1,12 @@
 import React from "react";
-import { getAllProjects, getProjectBySlug } from "../projectsConnector";
+import {
+  getAllProjects,
+  getProjectBySlug,
+} from "../../../components/projects/projectsConnector";
 import Image from "next/image";
-import Content from "./content";
+import Content from "../../../components/projects/Content";
 import { serialize } from "next-mdx-remote/serialize";
+import style from "./page.module.css";
 
 export function generateStaticParams() {
   const projects = getAllProjects(["slug"]);
@@ -19,12 +23,12 @@ const Page = async ({ params }: { params: any }) => {
   ]);
   return (
     <>
-      <h1 className={"text-5xl mb-5"}>{project.title}</h1>
-      <section className={"flex flex-wrap justify-between gap-3"}>
-        <div className={"w-[700px] flex-shrink"}>
+      <h1 className={style.title}>{project.title}</h1>
+      <section className={style.section}>
+        <div className={style.content}>
           <Content content={await serialize(project.content)} />
         </div>
-        <div className={"relative flex-1 h-64"}>
+        <div className={style.image}>
           <Image
             src={project.coverImage}
             alt={project.title}

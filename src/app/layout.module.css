@@ -5,6 +5,7 @@
 
 @media (min-width: 768px) {
   .main {
-    margin: 2rem;
+    margin: auto;
+    padding: 2rem;
   }
 }

@@ -2,7 +2,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import style from "./layout.module.css";
 import Navbar from "../components/navigation/Navbar";
-import Footer from "../components/layout/footer";
+import Footer from "../components/layout/Footer";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

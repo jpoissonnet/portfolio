@@ -11,7 +11,7 @@
   font-size: 3rem;
   line-height: 1.375em;
   font-weight: bold;
-  color: var(--text-color);
+
   letter-spacing: -0.025em;
 }
 
@@ -25,14 +25,14 @@
   font-size: 1.5rem;
   line-height: 1.75em;
   font-weight: 300;
-  color: var(--text-color);
+
   letter-spacing: -0.025em;
 }
 
 .button {
   padding: 1.25rem;
   border-radius: 0.5rem;
-  color: var(--text-color);
+
   letter-spacing: -0.025em;
   background-image: linear-gradient(to right, var(--blue), var(--purple));
   filter: hue-rotate(0) saturate(100%);

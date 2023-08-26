@@ -1,20 +1,23 @@
 .wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--primary-background-color);
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
   height: 4rem;
   padding: 1rem;
   max-width: 1280px;
-  top: 0;
-  background-color: var(--primary-background-color);
-  z-index: 1;
+  margin: auto;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-color);
 }
 
 .navLinkWrapper {

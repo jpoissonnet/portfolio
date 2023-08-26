@@ -1,6 +1,7 @@
 import React from "react";
-import { getAllProjects } from "./projectsConnector";
-import Project from "./project";
+import { getAllProjects } from "../../components/projects/projectsConnector";
+import ProjectCard from "../../components/projects/ProjectCard";
+import style from "./page.module.css";
 
 const Page = async () => {
   const projects = getAllProjects([
@@ -14,13 +15,12 @@ const Page = async () => {
   ]);
   return (
     <>
-      <h2 className={"text-3xl font-bold my-8"}>Projects</h2>
-      <div className={"flex flex-wrap justify-center gap-2"}>
-        {projects.length &&
-          projects.map((project) => (
-            <Project project={project} key={project.slug} />
-          ))}
-      </div>
+      <h2 className={style.title}>Projects</h2>
+      <section className={style.projects}>
+        {projects.map((project) => (
+          <ProjectCard project={project} key={project.slug} />
+        ))}
+      </section>
     </>
   );
 };

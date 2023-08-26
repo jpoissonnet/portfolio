@@ -1,10 +1,11 @@
 import React from "react";
+import style from "./page.module.css";
 
 const Playground = () => {
   return (
     <section>
-      <h1 className={"text-2xl font-bold my-5"}>Welcome to the playground!</h1>
-      <p className={"text-gray-500"}>
+      <h1 className={style.title}>Welcome to the playground!</h1>
+      <p className={style.subtitle}>
         This is the page where I will put all my experiments, tests and other
         stuff.
       </p>
