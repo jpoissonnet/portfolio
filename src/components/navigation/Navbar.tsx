@@ -1,7 +1,9 @@
+import React, { Suspense } from "react";
 import Link from "next/link";
 import NavLink from "./NavLink";
 import style from "./Navbar.module.css";
 import { MobileNav } from "./mobile/MobileNav";
+import ToggleTheme from "../theme/toggleTheme";
 
 const Navbar = () => {
   return (
@@ -10,6 +12,9 @@ const Navbar = () => {
         <Link href={"/"}>
           <h1 className={style.title}>Jules P.</h1>
         </Link>
+        <Suspense>
+          <ToggleTheme />
+        </Suspense>
         <MobileNav />
         <ul className={style.navLinkWrapper}>
           <NavLink href={"/"}>Home</NavLink>
