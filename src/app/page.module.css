@@ -32,14 +32,23 @@
 .button {
   padding: 1.25rem;
   border-radius: 0.5rem;
-
   letter-spacing: -0.025em;
-  background-image: linear-gradient(to right, var(--blue), var(--purple));
+  --background-image: linear-gradient(to right, var(--blue), var(--purple));
+  background-image: var(--background-image);
   filter: hue-rotate(0) saturate(100%);
-  transition: filter 200ms ease-in-out, transform 150ms ease-in-out;
-}
-
-.button:hover {
-  filter: hue-rotate(70deg) saturate(50%);
-  transform: scale(1.02);
+  transition: filter 1s ease-out, transform 150ms ease-in-out;
+  &:hover {
+    filter: hue-rotate(70deg) saturate(50%);
+    transform: translateY(-2px);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+    border-radius: 0.5rem;
+    background-image: var(--background-image);
+    transition: width 150ms ease-in-out;
+    filter: blur(20px);
+  }
 }
