@@ -3,7 +3,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import style from "./Navbar.module.css";
 import { MobileNav } from "./mobile/MobileNav";
-import ToggleTheme from "../theme/toggleTheme";
+import ToggleTheme from "../theme/ToggleTheme";
 
 const Navbar = () => {
   return (
