@@ -37,11 +37,13 @@
   background-image: var(--background-image);
   filter: hue-rotate(0) saturate(100%);
   transition: filter 1s ease-out, transform 150ms ease-in-out;
-  &:hover {
+
+  .button:hover {
     filter: hue-rotate(70deg) saturate(50%);
     transform: translateY(-2px);
   }
-  &::before {
+
+  .button::before {
     content: "";
     position: absolute;
     z-index: -1;
