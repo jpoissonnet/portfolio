@@ -1,49 +1,50 @@
 .wrapper {
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  margin: 3rem 0;
-  gap: 3rem;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 3rem 0;
+    gap: 3rem;
 }
 
 .title {
-  font-size: 3rem;
-  line-height: 1.375em;
-  font-weight: bold;
+    font-size: 3rem;
+    line-height: 1.375em;
+    font-weight: bold;
 
-  letter-spacing: -0.025em;
+    letter-spacing: -0.025em;
 }
 
 .emphasis {
-  color: transparent;
-  background-clip: text;
-  background-image: linear-gradient(to right, var(--blue), var(--purple));
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
 }
 
 .description {
-  font-size: 1.5rem;
-  line-height: 1.75em;
-  font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.75em;
+    font-weight: 300;
 
-  letter-spacing: -0.025em;
+    letter-spacing: -0.025em;
 }
 
 .button {
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  letter-spacing: -0.025em;
-  --background-image: linear-gradient(to right, var(--blue), var(--purple));
-  background-image: var(--background-image);
-  filter: hue-rotate(0) saturate(100%);
-  transition: filter 1s ease-out, transform 150ms ease-in-out;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    letter-spacing: -0.025em;
+    --background-image: linear-gradient(to right, var(--blue), var(--purple));
+    background-image: var(--background-image);
+    filter: hue-rotate(0) saturate(100%);
+    transition: filter 1s ease-out, transform 150ms ease-in-out;
+}
 
-  .button:hover {
+.button:hover {
     filter: hue-rotate(70deg) saturate(50%);
     transform: translateY(-2px);
-  }
+}
 
-  .button::before {
+.button::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -52,5 +53,4 @@
     background-image: var(--background-image);
     transition: width 150ms ease-in-out;
     filter: blur(20px);
-  }
 }

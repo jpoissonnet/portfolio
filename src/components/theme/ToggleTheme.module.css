@@ -1,44 +1,139 @@
 .wrapper {
-  height: 100%;
-  display: inline-flex;
-  gap: 10px;
+    height: 100%;
+    display: inline-flex;
+    width: 100px;
+    justify-content: space-between;
+    padding: 0.3rem;
+    box-shadow: inset 1px 1px 2px 1px rgba(56, 56, 56, 0.4);
+    border-radius: 16px;
+    background-color: var(--body-background);
 }
 
 .input {
-  display: none;
+    display: none;
 }
 
 .darkInput {
-  composes: input;
+    composes: input;
 }
 
 .systemInput {
-  composes: input;
+    composes: input;
 }
 
 .lightInput {
-  composes: input;
+    composes: input;
 }
 
 .label {
-  background-color: #3b82f6;
-  border-radius: 50%;
-  height: 100%;
-  width: 30px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    margin: 5px;
+    height: calc(100% - 10px);
+    aspect-ratio: 1/1;
+    --box-shadow: -2px 2px 4px 1px rgba(56, 56, 56, 0.4);
+    box-shadow: var(--box-shadow);
+    transition: all .2s ease-in-out;
+
 }
 
 .input:checked + .label {
-  background-color: #8b5cf6;
+    background-color: #8b5cf6;
 }
 
 .darkLabel {
-  composes: label;
+    composes: label;
 }
 
 .systemLabel {
-  composes: label;
+    composes: label;
 }
 
+
 .lightLabel {
-  composes: label;
+    position: relative;
+    composes: label;
+    background-color: #e8cc6b;
+    --light-box-shadow: inset 1px 1px 2px rgba(246, 237, 237, 0.39);
+    --inner-shadow: inset -1px -1px 2px rgba(96, 93, 93, 0.2);
+    box-shadow: var(--box-shadow), var(--inner-shadow);
+    transition: all .2s ease-in-out;
+    transform: rotate(0deg);
+}
+
+.lightLabel:hover{
+    transform: rotate(180deg);
+}
+
+.input:checked + .lightLabel {
+    background-color: #e8cc6b;
+    box-shadow: var(--box-shadow), var(--light-box-shadow), var(--inner-shadow);
+}
+
+.ray{
+    display: none;
+    --size: 5px;
+    --offset: 2px;
+    --size-offset: calc(var(--size) - var(--offset));
+
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: calc(var(--size-offset) * -1);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e8cc6b;
+    box-shadow: 1px 1px 2px 2px rgba(208, 194, 194, 0.39);
+}
+
+.ray:first-of-type{
+    top: calc(var(--size-offset) * -1);
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.ray:nth-of-type(2){
+    top: 50%;
+    left: calc(100% + var(--size-offset));
+    transform: translate(-50%,-50%);
+}
+
+.ray:nth-of-type(3){
+    top: calc(100% + var(--size-offset));
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.ray:nth-of-type(4){
+    top: 50%;
+    left: calc(var(--size-offset) * -1);
+    transform: translate(-50%,-50%);
+}
+
+.ray:nth-of-type(5), .ray:nth-of-type(6), .ray:nth-of-type(7), .ray:nth-of-type(8){
+    --offset: 4px;
+}
+
+.ray:nth-of-type(5){
+    top: calc(var(--size-offset) * -1);
+    left: calc(var(--size-offset) * -1);
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.ray:nth-of-type(6){
+    top: calc(100% + var(--size-offset));
+    left: calc(var(--size-offset) * -1);
+    transform: translate(-50%,-50%) rotate(135deg);
+}
+
+.ray:nth-of-type(7){
+    top: calc(100% + var(--size-offset));
+    left: calc(100% + var(--size-offset));
+    transform: translate(-50%,-50%) rotate(225deg);
+}
+
+.ray:nth-of-type(8){
+    top: calc(var(--size-offset) * -1);
+    left: calc(100% + var(--size-offset));
+    transform: translate(-50%,-50%) rotate(315deg);
 }

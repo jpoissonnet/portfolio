@@ -43,7 +43,16 @@ const ToggleTheme = () => {
         onChange={() => setTernaryDarkMode("light")}
         checked={ternaryDarkMode === "light"}
       />
-      <label htmlFor="light" className={style.lightLabel}></label>
+      <label htmlFor="light" className={style.lightLabel}>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+          <div className={style.ray}></div>
+      </label>
     </form>
   );
 };
