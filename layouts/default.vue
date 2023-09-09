@@ -1,0 +1,22 @@
+<template>
+  <NavigationBar />
+  <main>
+    <slot />
+  </main>
+  <LayoutFooter />
+</template>
+
+<style>
+main {
+  max-width: 1280px;
+  margin: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: auto;
+    padding: 2rem;
+  }
+}
+
+</style>
