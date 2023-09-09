@@ -13,9 +13,9 @@
       <br /> I am a frontend apprentice, and I am currently learning React and
       Next.js.
     </p>
-    <a href="/projects">
+    <nuxt-link href="/projects">
       <p>See my projects</p>
-    </a>
+    </nuxt-link>
   </section>
 </template>
 
@@ -75,6 +75,15 @@ a::before {
   background-image: var(--background-image);
   transition: width 150ms ease-in-out;
   filter: blur(20px);
+  animation: flow 2s ease-in-out infinite alternate;
 }
 
+@keyframes flow {
+  from {
+    inset: -2px;
+  }
+  to {
+    inset: -4px;
+  }
+}
 </style>
