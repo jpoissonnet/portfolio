@@ -1,6 +1,5 @@
 ---
 title: 'Portfolio'
-excerpt: 'A Next.js portfolio that takes mdx files and renders them as blog posts.'
 coverImage: 'https://images.unsplash.com/photo-1545665277-5937489579f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
 date: '2022-10-16T05:35:07.322Z'
 tags: [ [ 'Next.js',"gray" ],[ 'styled-components',"pink" ],[ 'TypeScript',"cyan" ] ]

@@ -1,6 +1,5 @@
 <script setup>
 const projects = useAsyncData("projects", () => queryContent("projects").find()).data;
-console.log(projects);
 </script>
 <template>
   <h2>Projects</h2>

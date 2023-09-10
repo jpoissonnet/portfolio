@@ -1,6 +1,5 @@
 ---
 title: 'Toffle'
-excerpt: 'Toffle is a simple web app that allows you to create a list of films and TV shows you want to watch.'
 coverImage: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
 date: '2020-03-16T05:35:07.322Z'
 tags: [ [ 'Angular','red' ],[ 'Prisma','gray' ],[ 'SASS','pink' ] ]

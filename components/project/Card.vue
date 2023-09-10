@@ -5,11 +5,10 @@ const { project } = defineProps({
     required: true
   }
 });
-
 </script>
 
 <template>
-  <nuxt-link :href="'project/'+ project.slug">
+  <nuxt-link :href="project._path">
     <div>
       <img
         :src="project.coverImage"

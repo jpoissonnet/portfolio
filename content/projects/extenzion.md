@@ -1,6 +1,5 @@
 ---
 title: 'Extenzion'
-pouet: 'Extenzion is a Chrome extension that I did to help me remember which episodes I have to watch next in a tv show.'
 coverImage: 'https://images.unsplash.com/photo-1615986201152-7686a4867f30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'
 date: '2021-03-16T05:35:07.322Z'
 tags: [ [ 'HTML','orange' ],[ 'CSS','blue' ],[ 'JavaScript','yellow' ] ]
