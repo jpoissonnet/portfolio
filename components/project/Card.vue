@@ -17,7 +17,7 @@ const { project } = defineProps({
       />
     </div>
     <h3>{{ project.title }}</h3>
-    <p>{{ project.excerpt }}</p>
+    <p>{{ project.description }}</p>
     <ul>
       <ProjectPill v-for="tag in project.tags" :key="tag" :rank="1" :color="tag[1]">
         {{ tag[0] }}

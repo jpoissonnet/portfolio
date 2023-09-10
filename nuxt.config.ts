@@ -1,5 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: true },
   css: ["@/assets/css/normalize.css", "@/assets/css/main.css"],
-  devtools: { enabled: true }
+  modules: ["@nuxt/content"]
 });

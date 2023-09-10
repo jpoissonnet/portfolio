@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 const projectsDirectory = join(
   process.cwd(),
-  "/src/components/projects/_projects"
+  "/src/components/projects/projects"
 );
 
 export function getProjectSlugs() {
@@ -31,14 +31,14 @@ export function getProjectBySlug(slug: string, fields: string[] = []) {
       items[field] = data[field];
     }
   });
-  
-return items;
+
+  return items;
 }
 
 export function getAllProjects(fields: string[] = []) {
   const slugs = getProjectSlugs();
-  
-return slugs
+
+  return slugs
     .map((slug) => getProjectBySlug(slug, fields))
     .sort((project1, project2) => (project1.date > project2.date ? -1 : 1));
 }
