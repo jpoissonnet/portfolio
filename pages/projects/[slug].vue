@@ -11,7 +11,7 @@ const project = useAsyncData("projects", () => queryContent("projects").where({ 
         :src="project.coverImage"
         :alt="project.title"
       />
-      <ContentRenderer :value="project" />
+      <ContentRenderer tag="article" :value="project" />
     </section>
   </div>
 </template>
@@ -30,11 +30,6 @@ section {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
-}
-
-.content {
-  flex: 1 1 100%;
-  max-width: 100%;
 }
 
 img {
