@@ -6,19 +6,21 @@ const project = useAsyncData("projects", () =>
 </script>
 
 <template>
-  <h2>{{ project.title }}</h2>
   <section>
-    <img :src="project.coverImage" :alt="project.title" />
-    <ContentRenderer tag="article" :value="project">
-      <template #empty>
-        <div class="skeleton-title"></div>
-        <div class="skeleton-text"></div>
-        <div class="skeleton-title"></div>
-        <div class="skeleton-text"></div>
-        <div class="skeleton-title"></div>
-        <div class="skeleton-text"></div>
-      </template>
-    </ContentRenderer>
+    <h2>{{ project.title }}</h2>
+    <article>
+      <img :src="project.coverImage" :alt="project.title" />
+      <ContentRenderer tag="article" :value="project">
+        <template #empty>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+        </template>
+      </ContentRenderer>
+    </article>
   </section>
 </template>
 
@@ -32,6 +34,11 @@ h2 {
 }
 
 section {
+  max-width: 876px;
+  margin: 0 auto;
+}
+
+article {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
