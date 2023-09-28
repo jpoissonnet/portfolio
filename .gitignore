@@ -6,6 +6,9 @@
 .cache
 dist
 
+.next
+next-env.d.ts
+
 # Node dependencies
 node_modules
 
