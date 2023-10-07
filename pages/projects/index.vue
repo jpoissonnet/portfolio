@@ -1,10 +1,14 @@
 <script setup>
-const projects = useAsyncData("projects", () => queryContent("projects").find()).data;
+const projects = useAsyncData(() => queryContent("projects").find()).data;
 </script>
 <template>
   <h2>Projects</h2>
   <section>
-    <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
+    <ProjectCard
+      v-for="project in projects"
+      :key="project.slug"
+      :project="project"
+    />
   </section>
 </template>
 
