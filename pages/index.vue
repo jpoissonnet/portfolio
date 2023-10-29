@@ -1,17 +1,19 @@
+x²
 <template>
   <section>
     <h2>
       Hello,
       <br />
       <span>
-          I am Jules,
-          <br /> nice to meet you.
-        </span>
+        I am Jules,
+        <br />
+        nice to meet you.
+      </span>
     </h2>
     <p>
       I like to learn things, and I like to share what I learn.
-      <br /> I am a frontend apprentice, and I am currently learning React and
-      Next.js.
+      <br />
+      I am a frontend apprentice, and I am currently learning React and Next.js.
     </p>
     <nuxt-link href="/projects">
       <p>See my projects</p>
@@ -58,7 +60,9 @@ a {
   --background-image: linear-gradient(to right, var(--blue), var(--purple));
   background-image: var(--background-image);
   filter: hue-rotate(0) saturate(100%);
-  transition: filter 1s ease-out, transform 150ms ease-in-out;
+  transition:
+    filter 1s ease-out,
+    transform 150ms ease-in-out;
 }
 
 a:hover {
