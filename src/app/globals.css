@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 :root {
-    --body-background: #171717;
+    --body-background: var(--dark-gray);
     --primary-background-color: #1f2937;
     --text-color: #f8fafc;
     --text-color-secondary: #757575;
-    --blue: #3b82f6;
-    --purple: #8b5cf6;
     --primary-action: var(--blue);
     --link-color: var(--blue);
+
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
+    --dark-gray: #171717;
 }
 
 :root.light {

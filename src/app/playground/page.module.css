@@ -9,3 +9,17 @@
   font-size: 1.25rem;
   color: var(--text-color-secondary);
 }
+
+.section {
+  margin: 2rem 0;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
