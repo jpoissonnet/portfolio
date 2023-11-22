@@ -10,8 +10,8 @@ import style from "./page.module.css";
 
 export function generateStaticParams() {
   const projects = getAllProjects(["slug"]);
-  
-return projects.map((project) => ({
+
+  return projects.map((project) => ({
     slug: project.slug,
   }));
 }
@@ -22,8 +22,8 @@ const Page = async ({ params }: { params: any }) => {
     "content",
     "coverImage",
   ]);
-  
-return (
+
+  return (
     <>
       <h1 className={style.title}>{project.title}</h1>
       <section className={style.section}>
@@ -35,6 +35,7 @@ return (
             src={project.coverImage}
             alt={project.title}
             fill={true}
+            placeholder={"empty"}
             style={{ objectFit: "cover", objectPosition: "bottom" }}
           />
         </div>

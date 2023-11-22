@@ -6,13 +6,14 @@ import style from "./ProjectCard.module.css";
 
 const ProjectCard = ({ project }: { project: any }) => {
   return (
-    <Link href={`projects/${  project.slug}`} className={style.wrapper}>
+    <Link href={`projects/${project.slug}`} className={style.wrapper}>
       <div className={style.image}>
         <Image
           src={project.coverImage}
           alt={project.alt ?? "decorative image"}
           fill={true}
           style={{ objectFit: "cover", objectPosition: "center" }}
+          placeholder={"empty"}
         />
       </div>
       <h3 className={style.title}>{project.title}</h3>
