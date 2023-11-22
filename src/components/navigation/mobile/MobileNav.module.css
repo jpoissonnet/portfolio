@@ -27,6 +27,7 @@
   composes: bar;
   top: 0;
 }
+
 .hiddenCheckbox:checked ~ .topBar {
   top: 50%;
   transform: rotate(45deg) translateY(-50%);
@@ -48,7 +49,7 @@
   bottom: 0;
 }
 
-.hiddenCheckbox:checked ~ & {
+.hiddenCheckbox:checked ~ .bottomBar {
   bottom: 50%;
   transform: rotate(-45deg) translateY(50%);
 }
@@ -69,6 +70,7 @@
   transition: all 0.3s ease-in-out;
   transform: translateY(-100%);
 }
+
 .hiddenCheckbox:checked ~ .mobileLinkWrapper {
   transform: translateY(0);
 }
