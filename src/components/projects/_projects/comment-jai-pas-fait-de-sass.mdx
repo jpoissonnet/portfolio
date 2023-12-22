@@ -1,0 +1,74 @@
+---
+title: 'Comment je n`ai pas fait de sass'
+excerpt: 'Petit retour sur un projet scolaire qui a bien tourné'
+coverImage: '/projects/commentjaipasfaitdesass.jpg'
+date: '2023-12-21T05:35:07.322Z'
+tags: [['Sass','pink'],['Tailwind','cyan'],['Devtools','Orange']]
+---
+
+# D’abord pourquoi ?
+	Les cookies de toto est un exercice d’intégration intéressant, certes, une page statique fort jolie qui permet d’appréhender une nouvelle manière de stylisé une page avec du CSS. Néanmoins pour des raisons diverses, temps, motivation, hiver et quelques autres que certains regroupent sous le terme de flemme, je n’ai pas eu la force de m’adonner à l’exercice.  
+	Ce n’est pas faute d’avoir essayer, j’ai tenté à ma pause du midi au travail, entre deux cours au campus ou encore un weekend en rentrant chez moi un soir. Rien n’a pu empêcher la soudaine envie de fermer mon IDE.
+
+# Prendre le problème à l’envers
+	SI les cours m’ont appris quelque chose, c’est que quand on ne veut pas faire quelque chose, ce n’est pas en le remettant à plus tard que l’envie viendra.
+	Perdant l’espoir de trouver la motivation à temps j’ai décidé de prendre le problème à l’envers. Si je n’ai pas envie de faire l’exercice mais que je dois rendre mon travail : comment ne pas faire l’exercice ? N’ayant pas de barème, l’idée est simple, il faut rendre un exercice de sass, qui ressemble trait pour trait à la maquette et qui prenne le moins d’effort possible.
+> J’aime creuser et apprendre des choses donc personnellement je préfère m’amuser beaucoup en essayant un outil pas adapté trop longtemps que le faire conventionnellement plus rapidement.
+
+# Etablir un plan
+	Abraham Lincoln (je crois) à dit un jour “Donnez-moi 3heures pour couper un arbre et j’en passerai 2 pour aiguiser ma hache”. De cet enseignement je retire que c’est mieux d’avoir un plan avant d’entamer une tâche.
+	En termes de ressources, je dispose du corrigé de l’exercice qui a été fait en Tailwind. Ressource inestimable puisque cela rempli des deux critères que je m’était fixé, à savoir ressembler à la maquette et tourner dans un navigateur. Le problème majeur est que cela n’est pas en sass.
+	En réalité le problème qui me peine plus encore c’est que le corrigé utilise le CDN Tailwind et je n’ai pas arrêté de me plaindre du fait d’utiliser un CDN à cause du poids. Nouvelle contrainte, j’aimerais, pour rester aligner avec mes valeurs, que mon site soit au moins un peu plus léger que le corrigé de Tailwind.
+
+## Mon meilleur ami le browser
+	Je pars avec énormément d’espoir en me disant que si le site s’affiche dans mon navigateur, c’est que mon navigateur comprend du HTML et du CSS. Je me dis que le Tailwind finis donc par être interprété par le browser comme du CSS. J’ai un grand espoir de pouvoir récupérer ce code et le copier-coller dans un fichier SASS pour terminer l’exercice.
+
+	Mon premier réflexe est donc d’ouvrir le corrigé dans mon navigateur et d’aller voir si dans les DevTools je ne peux pas récupérer le CSS interprété. En fouillant un peu je trouve la balise `<style>` une partie du css généré dans la balise ```<head>```. Je trouve le contenu trop petit pour que cela contienne tout le css dont j’ai besoin et décide de chercher ailleurs.
+
+	Dans la balise <head>` j’aperçois les lignes
+```html
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+```
+La première référence un fichier CSS qui contient TOUT Tailwind et le deuxième contient la logique JS qui permet de faire marcher le premier.
+
+### Etat de la situation
+	Je me retrouve dans une impasse car dans mon plan il n’y a pas de JS qui tienne, hors il est indispensable pour faire fonctionner le CSS. Je me dis que je laisse ça de côté pour l’instant et tente l’improbable : Demander à ChatGPT
+
+
+## GPT pas encore dev front
+	ChatGPT ne m’a jamais satisfait en un seul message et cela n’a pas changé. Je lui donne le corrigé de Tailwind en lui demandant de le passer en SASS, sans succès. Je lui demande donc de lister les classes Tailwind utilisées dans le corrigé. Après quelques prompts pour modifier le formatage et récupérer une sortie compréhensible, je copie-colle cette sortie dans mon IDE et commence une par une à demander à Copilot de remplir les classes de Tailwind. Après plusieurs `entrée` et plusieurs `tab`, je remplis les classes Tailwind avec autant d’effort que de gloire (c’est à dire très peu). En regardant ce que cela donne dans mon browser et quelle ne fut pas ma surprise en découvrant que les marges sont toutes cassées et que j’ai face à moi une version Eco+ de la maquette originelle.  On ne remplis pas le critère de ressemblance à la maquette -> on cherche autre chose.
+
+### Conclusion de la piste
+	Dans le code HTML du corrigé, il n’y a pas toutes les instructions que Tailwind fini par convertir en CSS, il semble manquer quelque chose…
+
+## Retour à la première piste
+	Je réalise que s’il manque des marges et des paddings c’est parce que Tailwind ne convertit pas que les classes que nous marquons mais il fait aussi du traitement de base, on appelle ça un reset.
+Je tente de chercher ce reset sur internet, me casse les dents car la fatigue me prend et que ce n’est pas très intéressant. Je me dis cependant que le code de ce reset dois surement être compris dans l’énorme fichier qui est importé dans le corrigé par la ligne
+```html
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+```
+Je l’ouvre donc dans mes DevTools pour m’apercevoir, que le fichier est énorme 166kB ce qui est plus lourd que la plus lourde de mes images.
+
+Je prend le pari de me dire qu’il y a forcément tout le code nécessaire au bon affichage du corriger la-dedans et je fais à nouveau copié-collé pour être à nouveau déçu.
+
+## La bonne trouvaille
+
+	Le fichier est tellement lourd et long que mes DevTools peinent à l’afficher et mon IDE m’affiche des warnings. L’idée me prend alors de chercher s’il existe un moyen de voir tout le code que je n’utilise pas depuis mes DevTools. Une unique recherche Google m’a fait découvrir un nouvel outil à mon arsenal. Le __coverage__.
+
+### L’allié des ennemis de webpack
+
+	Il existe un panneau de commande bien trop méconnu dans les DevTools Chromium qui s’affiche avec le raccourci Ctrl+Maj+P ou CMD+Maj+P et qui nous donnent accès facilement à une ribambelle d’outils magiques. Parmi ceux-là, le **Coverage** est très intéressant car il permet de voir la proportion de code qui est réellement exécuté par le navigateur. En ouvrant l’onglet, démarrant l’enregistrement et en rafraîchissant la page, on peut voir graphiquement le code qui n’est pas utilisé mais quand meme présent dans le browser.
+	En l’exécutant sur le corrigé de Tailwind, on peut voir qu’on utilise à peine 10% du fichier téléchargé. En cliquant dessus on peut même voir quelles sont les lignes qui ne sont pas chargé.
+	Cette trouvaille me parait très utile dans les cas où l’on voudrait identifier du code mort sans se creuser la tête ou casser l’affichage du site. Je n’ai pas testé mais cela fonctionne également sur du Javascript et pourrait permettre de mesurer le gain de performance de la mise en place d’un bundler comme webpack.
+
+
+### Suite et fin
+	Ce n’est qu’à ce stade que je me souviens qu’il n’y avait pas un mais deux fichiers pour faire afficher Tailwind correctement : le CSS et le JS. Mon intuition me dit donc que je n’arriverais pas à outrepasser Tailwind aussi simplement sans Javascript. Une recherche Google m’indique qu’au lieu de contourner Tailwind je pourrais peut-être l’explorer un peu plus.  Je m’arrête sur une page qui est https://play.tailwindcss.com/ et qui est essentiellement un playground Tailwind. Je note le lien car cela pourrait être utile si jamais je me retrouve à devoir retourner la configuration ou faire une démonstration rapide. En regardant un tout petit peu mieux je m’aperçois qu’il possède un onglet `Generated CSS`.  En collant une dernière fois le corrigé Tailwind, je me retrouve avec le CSS que j’ai l’impression de mériter et de voler à la fois. Je le récupère et me satisfait de cet exercice fort en émotion.
+
+# Conclusion
+
+	Loin de moi l’apologie de la paresse. Je trouve tellement beau le fait que l’auto-discipline surpasse la flemme que je ne me permettrait pas de dire qu’il faut moins travailler. Pourtant je ne peux qu’encourager le fait de chercher la limite des énoncés car c’est la que j’apprends le plus. Si la contrainte force la créativité, alors les devoirs m’apprendront à ne pas coder.
+
+> “La triche n’est interdite qu’au casino” - A. Caron
+
