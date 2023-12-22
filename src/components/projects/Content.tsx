@@ -15,6 +15,8 @@ const Content = ({ content }: { content: any }) => {
     p: (props: any) => <p className={style.p} {...props} />,
     a: (props: any) => <a className={style.a} {...props} />,
     ul: (props: any) => <ul className={style.ul} {...props} />,
+    pre: (props: any) => <pre className={style.pre} {...props} />,
+    code: (props: any) => <code className={style.code} {...props} />,
   };
   
 return <MDXRemote {...content} components={components} />;

@@ -26,18 +26,18 @@ const Page = async ({ params }: { params: any }) => {
   return (
     <>
       <h1 className={style.title}>{project.title}</h1>
-      <section className={style.section}>
-        <div className={style.content}>
-          <Content content={await serialize(project.content)} />
-        </div>
-        <div className={style.image}>
-          <Image
+      <div className={style.image}>
+        <Image
             src={project.coverImage}
             alt={project.title}
             fill={true}
             placeholder={"empty"}
-            style={{ objectFit: "cover", objectPosition: "bottom" }}
-          />
+            style={{objectFit: "cover", objectPosition: "bottom"}}
+        />
+      </div>
+      <section className={style.section}>
+        <div className={style.content}>
+          <Content content={await serialize(project.content)} />
         </div>
       </section>
     </>

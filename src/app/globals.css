@@ -13,6 +13,7 @@
     --blue: #3b82f6;
     --purple: #8b5cf6;
     --dark-gray: #171717;
+    --code-background-color: #1f2937;
 }
 
 :root.light {
